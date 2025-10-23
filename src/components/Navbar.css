@@ -1,53 +1,100 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--navbar-bg);
-  padding: 15px 40px;
-  box-shadow: 0 2px 6px var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navbar-bg);
+    padding: 15px 30px;
+    box-shadow: 0 2px 6px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.navbar h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin: 0;
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
 }
 
+/* Right section links */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.3s ease;
 }
 
-.nav-links a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
+    .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
 
-.nav-links a:hover {
-  color: var(--primary-color);
-}
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
+/* Theme toggle button */
 .theme-toggle {
-  background: var(--primary-color);
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition:
-    transform 0.2s ease,
-    background 0.3s ease;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.theme-toggle:hover {
-  transform: scale(1.05);
-  background: #1d4ed8;
+    .theme-toggle:hover {
+        transform: scale(1.05);
+        background: #1d4ed8;
+    }
+
+/* Hamburger button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: var(--navbar-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 180px;
+        padding: 15px 20px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 10px var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+    }
+
+        .nav-links.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .nav-links a,
+        .nav-links button {
+            width: 100%;
+            text-align: left;
+            margin: 8px 0;
+        }
 }

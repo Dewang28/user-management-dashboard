@@ -46,7 +46,7 @@ function HomePage({ showToast }) {
       u.email.toLowerCase().includes(search.toLowerCase())
   );
 
-  // IntersectionObserver to detect when bottom is visible
+  
   const handleObserver = useCallback(
     (entries) => {
       const target = entries[0];
