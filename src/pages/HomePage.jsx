@@ -11,17 +11,33 @@ function HomePage({ showToast }) {
   const [visibleCount, setVisibleCount] = useState(6);
   const loaderRef = useRef(null);
 
-  useEffect(() => {
-    getUsers()
-      .then((data) => {
-        setUsers(data);
-        showToast && showToast("✅ Users loaded successfully!");
-      })
-      .catch(() => showToast && showToast("❌ Failed to fetch users!"));
+    useEffect(() => {
+        let isMounted = true; 
 
-    const stored = JSON.parse(localStorage.getItem("addedUsers") || "[]");
-    setAddedUsers(stored);
-  }, [showToast]);
+        getUsers()
+            .then((data) => {
+                if (isMounted) {
+                    setUsers(data);
+
+                    
+                    if (!localStorage.getItem("toastShown")) {
+                        showToast && showToast("✅ Users loaded successfully!");
+                        localStorage.setItem("toastShown", "true");
+                    }
+                }
+            })
+            .catch(() => {
+                showToast && showToast("❌ Failed to fetch users!");
+            });
+
+        const stored = JSON.parse(localStorage.getItem("addedUsers") || "[]");
+        setAddedUsers(stored);
+
+        return () => {
+            isMounted = false;
+        };
+    }, [showToast]);
+
 
   const allUsers = [...users, ...addedUsers];
   const filteredUsers = allUsers.filter(
