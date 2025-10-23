@@ -18,4 +18,4 @@
 
 ## 🌐 Live Demo
 You can view the deployed app here:
-User Management Dashboard Live - https://user-management-dashboard-theta-seven.vercel.app/
+User Management Dashboard Live - https://user-management-dashboard-pikx.vercel.app/
