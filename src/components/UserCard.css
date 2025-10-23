@@ -1,0 +1,48 @@
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.user-card {
+  background: var(--card-color);
+  border-radius: 14px;
+  box-shadow: 0 5px 20px var(--shadow);
+  padding: 20px 25px;
+  text-align: left;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+.user-card h3 {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.user-card p {
+  margin: 5px 0;
+  color: var(--text-color);
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.user-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.user-card a:hover {
+  color: #1d4ed8;
+}
