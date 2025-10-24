@@ -19,3 +19,10 @@
 ## 🌐 Live Demo
 You can view the deployed app here:
 User Management Dashboard Live - https://user-management-dashboard-pikx.vercel.app/
+
+# Bonus Features Implemented
+
+- Infinite Scroll for smooth user loading
+- LocalStorage persistence for added users
+- Dark/Light theme toggle
+- Toast notifications for user feedback
